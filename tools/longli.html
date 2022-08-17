@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>中华龙历日期</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="实时()">
+<div id="中华龙历日期"></div>
+<script>
+function 实时(){
+var today=new Date();
+var y=today.getFullYear();
+var M=today.getMonth();
+var m=M+1;
+var d=today.getDate();
+var Ty=y+2697;
+var Tm=0;
+var Td=0;
+if (m==2){
+		if (d>3){
+		Tm=1;
+		Td=d-3;
+    	}
+		else
+		{
+	Ty=y+2696;
+    	Tm=12;
+		Td=d+27;
+		}
+    }
+else if (m==3){
+	if(y%4==0&&y%100!=0||y%400==0){
+    	if (d>6){
+		Tm=2;
+		Td=d-6;
+    	}
+		else
+		{
+    	Tm=1;
+		Td=d+25;
+		}
+　　}
+	else{
+		if (d>5){
+		Tm=2;
+		Td=d-5;
+    	}
+		else
+		{
+    	Tm=1;
+		Td=d+26;
+		}
+　　}
+}
+else if (m==4){
+		if (d>4){
+		Tm=3;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=2;
+		Td=d+26;
+		}
+    }
+else if (m==5){
+		if (d>4){
+		Tm=4;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=3;
+		Td=d+26;
+		}
+    }
+else if (m==6){
+		if (d>4){
+		Tm=5;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=4;
+		Td=d+26;
+		}
+    }
+	else if (m==7){
+		if (d>5){
+		Tm=6;
+		Td=d-5;
+    	}
+		else
+		{
+    	Tm=5;
+		Td=d+26;
+		}
+    }
+	else if (m==8){
+		if (d>4){
+		Tm=7;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=6;
+		Td=d+26;
+		}
+    }
+else if (m==9){
+		if (d>4){
+		Tm=8;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=7;
+		Td=d+27;
+		}
+    }
+else if (m==10){
+		if (d>4){
+		Tm=9;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=8;
+		Td=d+26;
+		}
+    }
+else if (m==11){
+		if (d>4){
+		Tm=10;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=9;
+		Td=d+27;
+		}
+    }
+else if (m==12){
+		if (d>4){
+		Tm=11;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=10;
+		Td=d+26;
+		}
+    }
+else if (m==1){
+	Ty=y+2696;
+		if (d>4){
+		Tm=12;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=11;
+		Td=d+27;
+		}
+    }
+	
+	var 地支;
+	var 季节;
+	switch (Tm){
+ 		case 1:地支="寅";季节="孟春";
+        break;
+  		case 2:地支="卯";季节="仲春";
+        break;
+        	case 3:地支="辰";季节="季春";
+   	break;
+  		case 4:地支="巳";季节="孟夏";
+    	break;
+  		case 5:地支="午";季节="仲夏";
+        break;
+  		case 6:地支="未";季节="季夏";
+    	break;
+		case 7:地支="申";季节="孟秋";
+    	break;
+		case 8:地支="酉";季节="仲秋";
+    	break;
+		case 9:地支="戌";季节="季秋";
+    	break;
+		case 10:地支="亥";季节="孟冬";
+    	break;
+		case 11:地支="子";季节="仲冬";
+    	break;
+		case 12:地支="丑";季节="季冬";
+    	break;
+ 	}
+	
+ var Tweek=Td%5;
+ var 候序;
+ 	switch (Tweek){
+ 		case 1:候序="候一";
+        break;
+  		case 2:候序="候二";
+        break;
+        	case 3:候序="候三";
+   	break;
+  		case 4:候序="候四";
+    	break;
+  		case 0:候序="候五";
+        break;
+ 	}
+	document.getElementById('中华龙历日期').innerHTML="今天是中华龙历:<br>"+Ty+"年 "+季节+" "+Tm+"月建"+地支+" "+Td+"日 "+候序;
+	t=setTimeout(function(){实时()},500);
+}
+</script>
+</body>
+</html>

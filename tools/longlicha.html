@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>中华龙历-格里高利历转换器</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="实时()">
+<h2>中华龙历-格里高利历转换器</h2> 
+<script>
+function 实时(){
+var today=new Date();
+var y=today.getFullYear();
+var M=today.getMonth();
+var m=M+1;
+var d=today.getDate();
+var Ty=y+2697;
+var Tm=0;
+var Td=0;
+if (m==2){
+		if (d>3){
+		Tm=1;
+		Td=d-3;
+    	}
+		else
+		{
+	Ty=y+2696;
+    	Tm=12;
+		Td=d+27;
+		}
+    }
+else if (m==3){
+	if(y%4==0&&y%100!=0||y%400==0){
+    	if (d>6){
+		Tm=2;
+		Td=d-6;
+    	}
+		else
+		{
+    	Tm=1;
+		Td=d+25;
+		}
+　　}
+	else{
+		if (d>5){
+		Tm=2;
+		Td=d-5;
+    	}
+		else
+		{
+    	Tm=1;
+		Td=d+26;
+		}
+　　}
+}
+else if (m==4){
+		if (d>4){
+		Tm=3;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=2;
+		Td=d+26;
+		}
+    }
+else if (m==5){
+		if (d>4){
+		Tm=4;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=3;
+		Td=d+26;
+		}
+    }
+else if (m==6){
+		if (d>4){
+		Tm=5;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=4;
+		Td=d+26;
+		}
+    }
+	else if (m==7){
+		if (d>5){
+		Tm=6;
+		Td=d-5;
+    	}
+		else
+		{
+    	Tm=5;
+		Td=d+26;
+		}
+    }
+	else if (m==8){
+		if (d>4){
+		Tm=7;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=6;
+		Td=d+26;
+		}
+    }
+else if (m==9){
+		if (d>4){
+		Tm=8;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=7;
+		Td=d+27;
+		}
+    }
+else if (m==10){
+		if (d>4){
+		Tm=9;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=8;
+		Td=d+26;
+		}
+    }
+else if (m==11){
+		if (d>4){
+		Tm=10;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=9;
+		Td=d+27;
+		}
+    }
+else if (m==12){
+		if (d>4){
+		Tm=11;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=10;
+		Td=d+26;
+		}
+    }
+else if (m==1){
+	Ty=y+2696;
+		if (d>4){
+		Tm=12;
+		Td=d-4;
+    	}
+		else
+		{
+    	Tm=11;
+		Td=d+27;
+		}
+    }
+	
+	var 地支;
+	var 季节;
+	switch (Tm){
+ 		case 1:地支="寅";季节="孟春";
+        break;
+  		case 2:地支="卯";季节="仲春";
+        break;
+        	case 3:地支="辰";季节="季春";
+   	break;
+  		case 4:地支="巳";季节="孟夏";
+    	break;
+  		case 5:地支="午";季节="仲夏";
+        break;
+  		case 6:地支="未";季节="季夏";
+    	break;
+		case 7:地支="申";季节="孟秋";
+    	break;
+		case 8:地支="酉";季节="仲秋";
+    	break;
+		case 9:地支="戌";季节="季秋";
+    	break;
+		case 10:地支="亥";季节="孟冬";
+    	break;
+		case 11:地支="子";季节="仲冬";
+    	break;
+		case 12:地支="丑";季节="季冬";
+    	break;
+ 	}
+	
+ var Tweek=Td%5;
+ var 候序;
+ 	switch (Tweek){
+ 		case 1:候序="候一";
+        break;
+  		case 2:候序="候二";
+        break;
+        	case 3:候序="候三";
+   	break;
+  		case 4:候序="候四";
+    	break;
+  		case 0:候序="候五";
+        break;
+ 	}
+	document.getElementById('中华龙历日期').innerHTML="今天是中华龙历:<br>"+Ty+"年 "+季节+" "+Tm+"月建"+地支+" "+Td+"日 "+候序;
+	t=setTimeout(function(){实时()},500);
+}
+</script>
+	<h3><div id="中华龙历日期"></div></h3>
+	<h3>格里高利历查询中华龙历：</h3>
+	<p>年 : <input id="西年"></p>
+	<p>月 : <input id="西月"></p>
+	<p>日 : <input id="西日"></p><br>
+	<botton onclick="西查龙()">[查询龙历日期]</botton><br><br>
+	<h3><div id="西查龙日期"></div></h3>
+<script>
+function 西查龙(){
+	var 西年 = document.getElementById("西年").value;
+	var 西月 = document.getElementById("西月").value;
+	var 西日 = document.getElementById("西日").value;
+西年=Number(西年);
+西月=Number(西月);
+西日=Number(西日);
+var 龙年=西年+2697;
+var 龙月=0;
+var 龙日=0;
+if (西月==2){
+		if (西日>3){
+		龙月=1;
+		龙日=西日-3;
+    	}
+		else
+		{
+	龙年=西年+2696;
+    	龙月=12;
+		龙日=西日+27;
+		}
+    }
+else if (西月==3){
+	if(西年%4==0&&西年%100!=0||西年%400==0){
+    	if (西日>6){
+		龙月=2;
+		龙日=西日-6;
+    	}
+		else
+		{
+    	龙月=1;
+		龙日=西日+25;
+		}
+　　}
+	else{
+		if (西日>5){
+		龙月=2;
+		龙日=西日-5;
+    	}
+		else
+		{
+    	龙月=1;
+		龙日=西日+26;
+		}
+　　}
+}
+else if (西月==4){
+		if (西日>4){
+		龙月=3;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=2;
+		龙日=西日+26;
+		}
+    }
+else if (西月==5){
+		if (西日>4){
+		龙月=4;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=3;
+		龙日=西日+26;
+		}
+    }
+else if (西月==6){
+		if (西日>4){
+		龙月=5;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=4;
+		龙日=西日+26;
+		}
+    }
+	else if (西月==7){
+		if (西日>5){
+		龙月=6;
+		龙日=西日-5;
+    	}
+		else
+		{
+    	龙月=5;
+		龙日=西日+26;
+		}
+    }
+	else if (西月==8){
+		if (西日>4){
+		龙月=7;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=6;
+		龙日=西日+26;
+		}
+    }
+else if (西月==9){
+		if (西日>4){
+		龙月=8;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=7;
+		龙日=西日+27;
+		}
+    }
+else if (西月==10){
+		if (西日>4){
+		龙月=9;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=8;
+		龙日=西日+26;
+		}
+    }
+else if (西月==11){
+		if (西日>4){
+		龙月=10;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=9;
+		龙日=西日+27;
+		}
+    }
+else if (西月==12){
+		if (西日>4){
+		龙月=11;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=10;
+		龙日=西日+26;
+		}
+    }
+else if (西月==1){
+	龙年=西年+2696;
+		if (西日>4){
+		龙月=12;
+		龙日=西日-4;
+    	}
+		else
+		{
+    	龙月=11;
+		龙日=西日+27;
+		}
+    }
+	
+	var 查地支;
+	var 查季节;
+	switch (龙月){
+ 		case 1:查地支="寅";查季节="孟春";
+        break;
+  		case 2:查地支="卯";查季节="仲春";
+        break;
+        	case 3:查地支="辰";查季节="季春";
+   	break;
+  		case 4:查地支="巳";查季节="孟夏";
+    	break;
+  		case 5:查地支="午";查季节="仲夏";
+        break;
+  		case 6:查地支="未";查季节="季夏";
+    	break;
+		case 7:查地支="申";查季节="孟秋";
+    	break;
+		case 8:查地支="酉";查季节="仲秋";
+    	break;
+		case 9:查地支="戌";查季节="季秋";
+    	break;
+		case 10:查地支="亥";查季节="孟冬";
+    	break;
+		case 11:查地支="子";查季节="仲冬";
+    	break;
+		case 12:查地支="丑";查季节="季冬";
+    	break;
+ 	}
+	
+ var 龙周=龙日%5;
+ var 龙候序;
+ 	switch (龙周){
+ 		case 1:龙候序="候一";
+        break;
+  		case 2:龙候序="候二";
+        break;
+        	case 3:龙候序="候三";
+   	break;
+  		case 4:龙候序="候四";
+    	break;
+  		case 0:龙候序="候五";
+        break;
+ 	}
+	document.getElementById('西查龙日期').innerHTML="这天是中华龙历:<br>"+龙年+"年 "+查季节+" "+龙月+"月建"+查地支+" "+龙日+"日 "+龙候序;
+}
+</script>
+</body>
+</html>

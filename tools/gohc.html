@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HC三大频道进入器（XC内测）</title> 
+</head>
+<body>
+<script>
+function HCyc() {
+// 获取input值
+var variations_number1 = document.getElementById("nick").value;
+var variations_number2 = document.getElementById("pwd").value;
+// 改变网址
+element=document.getElementById('hc')
+element.href="https://hack.chat/?your-channel#"+variations_number1+"#"+variations_number2;
+}
+	function HClo() {
+// 获取input值
+var variations_number1 = document.getElementById("nick").value;
+var variations_number2 = document.getElementById("pwd").value;
+// 改变网址
+element=document.getElementById('hc')
+element.href="https://hack.chat/?lounge#"+variations_number1+"#"+variations_number2;
+}
+		function HCpro() {
+// 获取input值
+var variations_number1 = document.getElementById("nick").value;
+var variations_number2 = document.getElementById("pwd").value;
+// 改变网址
+element=document.getElementById('hc')
+element.href="https://hack.chat/?programming#"+variations_number1+"#"+variations_number2;
+}
+		function XCxq() {
+// 获取input值
+var variations_number1 = document.getElementById("nick").value;
+var variations_number2 = document.getElementById("pwd").value;
+// 改变网址
+element=document.getElementById('hc')
+element.href="https://xq.kzw.ink/?xq102210#"+variations_number1+"#"+variations_number2;
+}
+</script>
+	<h2>HC三大频道进入器（XC内测）</h2> 
+	<h3>请先设定侬额：</h3>
+	<p>昵称 : <input id="nick"></p>
+	<p>密码 : <input id="pwd"></p><br>
+	<botton onclick="HCyc()">[进入 注意先点这里再进入HCyc]</botton><br><br>
+	<botton onclick="HClo()">[进入 注意先点这里再进入HClo]</botton><br><br>
+	<botton onclick="HCpro()">[进入 注意先点这里再进入HCpro]</botton><br><br>
+	<botton onclick="XCxq()">[进入 注意先点这里再进入XCxq]</botton><br><br>
+	<h3><a href="https://hack.chat/?your-channel#xuanweitest" id="hc">HC的yc、lo、pro或者XC的xq</a></h3>
+	<p>不写或者不点的话自动HCyc昵称xuanweitest，无密码<br>
+		<s>不填密码也可能出错 我就这水平了看着办吧</s></p>
+	<p><strong>XC说明：</strong><br>
+中文昵称进不去 密码貌似可以<br>
+正常情况是允许中文昵称密码的（指输入弹窗）<br>
+即使是密码识别码可能不一样 反正我这跳转挺多bug的<br>
+凑活用用 只是给不能使用弹窗的人一个便利<br>
+	</p>
+	<br>
+	<p>html页面作者：玄微（魏若瑜）</p>
+</body>
+</html>
